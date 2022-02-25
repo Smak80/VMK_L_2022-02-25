@@ -32,11 +32,8 @@ namespace VMK_L_2022_02_25
             set => l = value;
         }
 
-        public void Add(MyStruct s)
-        {
-            MyList.Add(s);
-        }
-
+        public void Add(MyStruct s) => MyList.Add(s);
+        public void Add(MyStruct[] s) => MyList.AddRange(s);
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
