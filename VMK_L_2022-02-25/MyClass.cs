@@ -24,6 +24,13 @@ namespace VMK_L_2022_02_25
     }
     public class MyClass
     {
+        private DateTime dt;
+
+        public int Year
+        {
+            get => dt.Year;
+            set => dt = dt.AddYears(value - dt.Year);
+        }
         private List<MyStruct> l = new ();
         public List<MyStruct> MyList => new (l);
         public void Add(MyStruct s) => l.Add(s);
