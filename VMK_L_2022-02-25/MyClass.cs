@@ -25,15 +25,20 @@ namespace VMK_L_2022_02_25
     public class MyClass
     {
         private List<MyStruct> l = new ();
-
-        public List<MyStruct> MyList
+        public List<MyStruct> MyList => new (l);
+        public void Add(MyStruct s) => l.Add(s);
+        public void Add(MyStruct[] s) => l.AddRange(s);
+        public void Remove(int a)
         {
-            get => l;
-            set => l = value;
+            for (int i = 0; i < MyList.Count; i++)
+            {
+                if (l[i].a == a)
+                {
+                    l.RemoveAt(i);
+                    i--;
+                }
+            }
         }
-
-        public void Add(MyStruct s) => MyList.Add(s);
-        public void Add(MyStruct[] s) => MyList.AddRange(s);
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
